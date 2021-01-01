@@ -3,41 +3,34 @@ package com.hemebiotech.analytics;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Comparator;
 
+/**
+ *
+ *
+ */
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
-	
-	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
+	private ISymptomReader readSymptomsRaw;
+	private ISymptomWriter writeSymptoms;
 
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
+	/**
+	 * @param input a full or partial path to file with symptom strings in it, one per line
+	 * @param output a full or partial path to file where we will write the analyzed and counted symptoms;
+	 */
+	public AnalyticsCounter(String input, String output){
 
-			line = reader.readLine();	// get another symptom
+		if ((input != null) && ( output != null) ) {
+			readSymptomsRaw = new ReadSymptomDataFromFile(input);
+			writeSymptoms = new WriteSymptomsToFile(output);
 		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+
 	}
+
+	void Analyse(){
+
+	}
+
 }
