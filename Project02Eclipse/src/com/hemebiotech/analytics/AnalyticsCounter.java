@@ -28,9 +28,10 @@ public class AnalyticsCounter {
 	}
 
 	void Analyse(){
-		Map<String, Integer> symptomsClean = new Hashtable<String,Integer>();
+		Map<String, Integer> symptomsClean = new LinkedHashMap<String,Integer>();
 
 		List<String> symptomsRaw = readSymptomsRaw.GetSymptoms();
+		Collections.sort(symptomsRaw);
 		for(String symptom:symptomsRaw) {
 			Integer count = symptomsClean.get(symptom);
 			symptomsClean.put( symptom, ( count == null) ? 1 : count+1);
