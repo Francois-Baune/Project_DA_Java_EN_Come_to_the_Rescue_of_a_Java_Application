@@ -1,5 +1,7 @@
 package com.hemebiotech.analytics;
 
+import java.util.Map;
+
 public class WriteSymptomsToFile implements ISymptomWriter {
     private String filepath;
 
@@ -11,4 +13,8 @@ public class WriteSymptomsToFile implements ISymptomWriter {
         this.filepath = filepath;
     }
 
+    @Override
+    public void writeSymptoms(Map Symptoms) {
+
+    }
 }
