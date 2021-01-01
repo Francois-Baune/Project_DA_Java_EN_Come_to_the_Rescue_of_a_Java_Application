@@ -8,6 +8,6 @@ public class Launcher {
     public static void main(String args[]) throws Exception {
 
         AnalyticsCounter aSymptoms = new AnalyticsCounter(INPUT_PATH,OUTPUT_PATH);
-        aSymptoms.Analyse();
+        aSymptoms.analyse();
     }
 }
