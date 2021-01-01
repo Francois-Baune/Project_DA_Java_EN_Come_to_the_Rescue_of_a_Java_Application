@@ -4,5 +4,5 @@ import java.util.Map;
 
 public interface ISymptomWriter {
 
-    void writeSymptoms(Map Symptoms);
+    void writeSymptoms(Map<String,Integer> symptoms);
 }
