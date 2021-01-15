@@ -12,7 +12,7 @@ public class Launcher {
         ISymptomReader readSymptomsRaw = new ReadSymptomDataFromFile(INPUT_PATH);
         ISymptomWriter Symptomswriter = new WriteSymptomsToFile(OUTPUT_PATH);
 
-        List<String> symptomsRaw = readSymptomsRaw.GetSymptoms();
+        List<String> symptomsRaw = readSymptomsRaw.getSymptoms();
         Symptomswriter.writeSymptoms(AnalyticsCounter.analyse(symptomsRaw));
     }
 }
