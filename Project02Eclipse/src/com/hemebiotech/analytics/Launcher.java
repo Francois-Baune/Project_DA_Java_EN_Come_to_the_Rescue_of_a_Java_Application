@@ -9,8 +9,8 @@ public class Launcher {
 
     public static void main(String args[]) throws Exception {
 
-        ISymptomReader readSymptomsRaw = new ReadSymptomDataFromFile(INPUT_PATH);
-        ISymptomWriter Symptomswriter = new WriteSymptomsToFile(OUTPUT_PATH);
+        ISymptomReader readSymptomsRaw = new ReaderSymptomDataFromFile(INPUT_PATH);
+        ISymptomWriter Symptomswriter = new WriterSymptomsToFile(OUTPUT_PATH);
 
         List<String> symptomsRaw = readSymptomsRaw.getSymptoms();
         Symptomswriter.writeSymptoms(AnalyticsCounter.analyse(symptomsRaw));
