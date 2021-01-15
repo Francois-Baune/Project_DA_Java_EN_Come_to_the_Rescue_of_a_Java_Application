@@ -1,5 +1,7 @@
 package com.hemebiotech.analytics;
 
+import java.util.List;
+
 public class Launcher {
 
     final static String INPUT_PATH = "Project02Eclipse/symptoms.txt";
@@ -7,7 +9,10 @@ public class Launcher {
 
     public static void main(String args[]) throws Exception {
 
-        AnalyticsCounter aSymptoms = new AnalyticsCounter(INPUT_PATH,OUTPUT_PATH);
-        aSymptoms.Analyse();
+        ISymptomReader readSymptomsRaw = new ReadSymptomDataFromFile(INPUT_PATH);
+        ISymptomWriter Symptomswriter = new WriteSymptomsToFile(OUTPUT_PATH);
+
+        List<String> symptomsRaw = readSymptomsRaw.GetSymptoms();
+        Symptomswriter.writeSymptoms(AnalyticsCounter.analyse(symptomsRaw));
     }
 }
