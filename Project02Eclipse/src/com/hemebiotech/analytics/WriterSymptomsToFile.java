@@ -5,11 +5,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 
+/**
+ *
+ * Will write a Map we give it in a file. (we give the path to the constructor, the Map when when we call writeSymptoms)
+ *
+ */
 public class WriterSymptomsToFile implements ISymptomWriter {
     private String filepath;
 
     /**
-     *
+     * Constructor
      * @param filepath a full or partial path to file where we will write the analyzed and counted symptoms;
      */
     public WriterSymptomsToFile(String filepath) {
